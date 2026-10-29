@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ConciencIA Marema | Noticias de tecnología e inteligencia artificial</title>
+<meta name="description" content="Noticias de tecnología e inteligencia artificial explicadas de manera clara: programación, diseño, robótica, educación, empleo y comunidad. Por TecnoMarema.">
+<meta name="keywords" content="noticias de tecnología, inteligencia artificial, IA, programación, diseño web, robótica, educación, empleabilidad, TecnoMarema, ConciencIA Marema">
+<meta name="author" content="TecnoMarema">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0D1B2A">
+<meta property="og:site_name" content="ConciencIA Marema">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="ConciencIA Marema | Noticias de tecnología e inteligencia artificial">
+<meta property="og:description" content="Noticias de tecnología e inteligencia artificial explicadas de manera clara: programación, diseño, robótica, educación, empleo y comunidad. Por TecnoMarema.">
+<meta property="og:image" content="https://www.tecnomarema.com.ar/og-conciencia-marema.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ConciencIA Marema: noticias de tecnología e inteligencia artificial">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@tecnomarema">
+<meta name="twitter:title" content="ConciencIA Marema | Noticias de tecnología e inteligencia artificial">
+<meta name="twitter:description" content="Noticias de tecnología e inteligencia artificial explicadas de manera clara: programación, diseño, robótica, educación, empleo y comunidad. Por TecnoMarema.">
+<meta name="twitter:image" content="https://www.tecnomarema.com.ar/og-conciencia-marema.png">
+<script type="application/ld+json" id="ld">{"@context":"https://schema.org","@type":"Blog","name":"ConciencIA Marema","description":"Noticias de tecnología e inteligencia artificial explicadas de manera clara: programación, diseño, robótica, educación, empleo y comunidad. Por TecnoMarema.","inLanguage":"es-AR","publisher":{"@type":"Organization","name":"TecnoMarema","url":"https://www.tecnomarema.com.ar/"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;600;700&family=Montserrat:wght@700;900&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1B2A; --green:#12F693; --mag:#CF30FF;
+  --bg:#FFFFFF; --surface:#F8F9FA; --ink:#0D1B2A; --muted:#4F5D6B; --line:#DDE2E8;
+  --purple-bg:#F5E6FF; --purple-fg:#8A12B8;
+  --green-bg:#E8FFF5; --green-fg:#0A7A4C;
+  --gray-bg:#EEF1F4; --gray-fg:#33414F;
+  --navy-bg:#0D1B2A; --navy-fg:#12F693;
+  --disp:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --kick:'Antonio','Arial Narrow',Impact,sans-serif;
+  --text:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#08121D; --surface:#102131; --ink:#EAF0F6; --muted:#9FB0C0; --line:#1F3347;
+    --purple-bg:#2F1A42; --purple-fg:#E3A6FF;
+    --green-bg:#0F3326; --green-fg:#7DF5BF;
+    --gray-bg:#1A2B3C; --gray-fg:#C4D0DC;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#08121D; --surface:#102131; --ink:#EAF0F6; --muted:#9FB0C0; --line:#1F3347;
+  --purple-bg:#2F1A42; --purple-fg:#E3A6FF;
+  --green-bg:#0F3326; --green-fg:#7DF5BF;
+  --gray-bg:#1A2B3C; --gray-fg:#C4D0DC;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--text);font-size:1.05rem;line-height:1.55}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--mag);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+[data-cat="ia"],[data-cat="dis"],[data-cat="com"]{--tb:var(--purple-bg);--tf:var(--purple-fg)}
+[data-cat="edu"],[data-cat="car"],[data-cat="otr"]{--tb:var(--green-bg);--tf:var(--green-fg)}
+[data-cat="her"],[data-cat="prog"],[data-cat="tec"]{--tb:var(--gray-bg);--tf:var(--gray-fg)}
+[data-cat="eti"],[data-cat="rob"],[data-cat="act"]{--tb:var(--navy-bg);--tf:var(--navy-fg)}
+
+/* Marco de marca: línea verde arriba, magenta abajo */
+.bar-top{height:6px;background:var(--green)}
+.bar-bot{height:6px;background:var(--mag)}
+
+/* Portada / cabecera */
+.nav-top{background:var(--navy);color:#fff}
+.nav-top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 16px;min-height:62px}
+.logo{font-family:var(--disp);font-weight:900;font-size:1.1rem;letter-spacing:-.01em;color:#fff}
+.logo b{color:var(--mag);font-weight:900}
+.menu{display:flex;align-items:center;gap:6px}
+.menu a{font:700 .95rem var(--text);padding:8px 15px;border-radius:999px;color:#fff}
+.menu a:hover{color:var(--green)}
+.menu a.cta{background:var(--green);color:var(--navy)}
+.menu a.cta:hover{background:#fff;color:var(--navy)}
+.menu a.brand{display:flex;padding:0 0 0 10px}
+.brand img{height:40px;width:auto;display:block}
+.mini-row{margin-top:18px}
+.sbtns{display:flex;flex-wrap:wrap;gap:10px}
+.sb{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;font:800 .96rem var(--text);color:#fff;padding:7px 18px 7px 7px;border-radius:999px;transition:transform .15s,filter .15s}
+.sb:hover{transform:translateY(-3px);filter:brightness(1.08)}
+.sb i{font-style:normal;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.24);font-family:var(--disp);font-weight:900;font-size:.9rem;line-height:1}
+.sb.dk i{background:rgba(0,0,0,.14)}
+.sb.mini{padding:5px}
+.sb.mini i{background:transparent}
+.sb.wa{background:#25D366;color:#062B14}
+.sb.fb{background:#1877F2}
+.sb.x{background:#000;box-shadow:0 0 0 1.5px #3A4C5F}
+.sb.li{background:#0A66C2}
+.sb.tg{background:#29B6F6;color:#04222F}
+.sb.ml{background:var(--mag)}
+.sb.cp{background:var(--green);color:var(--navy)}
+.sb.nt{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.share{max-width:46rem;margin:0 auto;padding:0 20px 56px}
+.share-box{background:var(--navy);color:#fff;border-radius:24px;padding:30px 28px;position:relative;overflow:hidden}
+.share-box>*{position:relative;z-index:1}
+.share-box::after{content:"";position:absolute;right:-34px;top:-34px;width:96px;height:96px;border-radius:50%;background:var(--mag)}
+.share-box h2{font-family:var(--disp);font-weight:900;font-size:1.6rem;letter-spacing:-.01em;color:var(--green);margin:0 0 6px}
+.share-box p{margin:0 0 22px;color:#C9D4DF}
+.mast .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:44px;align-items:center;padding-top:56px;padding-bottom:28px}
+.mast .tag{display:inline-block;margin-bottom:20px;background:var(--green-bg);color:var(--green-fg);font-family:var(--kick);font-weight:600;font-size:1.1rem;letter-spacing:.04em;padding:3px 14px;border-radius:999px}
+.mast h1{font-family:var(--disp);font-weight:900;font-size:clamp(2.6rem,8vw,5.2rem);line-height:.96;letter-spacing:-.03em;color:var(--ink);margin:0}
+.mast h1 .ia{display:inline-block;background:var(--mag);color:#fff;border-radius:.16em;padding:0 .1em;transform:rotate(-3deg)}
+.mast p{max-width:30rem;margin:22px 0 0;color:var(--muted);font-size:1.15rem}
+.panel{background:var(--purple-bg);border-radius:28px;aspect-ratio:4/3;position:relative;overflow:hidden;color:var(--ink)}
+.panel svg{position:absolute;inset:0;width:100%;height:100%}
+@media (max-width:760px){.mast .wrap{grid-template-columns:1fr;gap:28px;padding-top:36px}.panel{aspect-ratio:16/9}}
+@media (max-width:480px){.logo{font-size:.95rem}.menu a{padding:7px 11px;font-size:.9rem}}
+.kick{font-family:var(--kick);font-weight:600;font-size:1.25rem;letter-spacing:.04em;color:#fff;margin:0 0 14px}
+.hero h1{font-family:var(--disp);font-weight:900;font-size:clamp(2.5rem,9vw,5.4rem);line-height:.98;letter-spacing:-.025em;color:var(--green);margin:0}
+.hero h1 b{color:var(--mag);font-weight:900}
+.hero p.sub{max-width:36rem;margin:18px 0 0;color:#C9D4DF;font-size:1.1rem}
+.hashtag{margin-top:26px;font-family:var(--kick);font-weight:600;letter-spacing:.06em;color:var(--green)}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 24px}
+.chip{border:2px solid var(--line);background:transparent;color:var(--ink);font:700 .92rem var(--text);padding:7px 16px;border-radius:999px;cursor:pointer}
+.chip:hover{border-color:var(--mag)}
+.chip[aria-pressed="true"]{background:var(--navy);color:var(--green);border-color:var(--navy)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip[aria-pressed="true"]{background:var(--green);color:var(--navy);border-color:var(--green)}}
+:root[data-theme="dark"] .chip[aria-pressed="true"]{background:var(--green);color:var(--navy);border-color:var(--green)}
+
+/* Listado */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding-bottom:56px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .15s}
+.card:hover{border-color:var(--mag)}
+.thumb{aspect-ratio:16/9;background:var(--navy);position:relative;overflow:hidden}
+.thumb svg{position:absolute;inset:0;width:100%;height:100%}
+.body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pill{align-self:flex-start;background:var(--tb);color:var(--tf);font-family:var(--kick);font-weight:600;font-size:1rem;letter-spacing:.04em;padding:2px 12px;border-radius:999px}
+.card h2{font-family:var(--disp);font-weight:900;font-size:1.15rem;line-height:1.22;letter-spacing:-.01em;margin:0}
+.card p{margin:0;color:var(--muted);font-size:.98rem}
+.meta{margin-top:auto;padding-top:6px;color:var(--muted);font-size:.85rem;font-weight:600;display:flex;justify-content:space-between}
+.card.feat{grid-column:span 3;flex-direction:row;background:var(--navy);border-color:var(--navy);color:#fff}
+.card.feat .thumb{flex:1.05;aspect-ratio:auto;min-height:290px;background:#122539}
+.card.feat .body{flex:1;padding:34px;justify-content:center}
+.card.feat h2{font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.1;color:var(--green)}
+.card.feat p{color:#C9D4DF;font-size:1.08rem}
+.card.feat .meta{color:#9FB0C0;margin-top:8px}
+.card.feat:hover{border-color:var(--mag)}
+.empty{grid-column:1/-1;color:var(--muted);padding:40px 0}
+
+/* Nota abierta */
+.art-head{background:var(--bg);color:var(--ink)}
+.art-head .in{max-width:46rem;margin:0 auto;padding:30px 20px 28px}
+.back{display:inline-block;font-family:var(--kick);font-weight:600;font-size:1.1rem;letter-spacing:.04em;color:var(--ink);padding:4px 0;margin-bottom:26px}
+.back:hover{color:var(--mag)}
+.art-head h1{font-family:var(--disp);font-weight:900;font-size:clamp(1.9rem,5.5vw,3.1rem);line-height:1.06;letter-spacing:-.025em;color:var(--ink);margin:16px 0 16px}
+.art-head .lead{font-size:1.2rem;color:var(--muted);margin:0 0 18px}
+.art-head .by{display:flex;gap:16px;color:var(--muted);font-weight:600;font-size:.92rem}
+.shot{max-width:46rem;margin:0 auto;padding:0 30px 0 20px}
+.shot .img{aspect-ratio:16/8;border-radius:22px;background:var(--navy);position:relative;overflow:hidden;box-shadow:10px 10px 0 var(--green)}
+.shot .img svg{position:absolute;inset:0;width:100%;height:100%}
+.more{border-top:1.5px solid var(--line);padding:44px 0 56px}
+.more>.wrap>h2{font-family:var(--disp);font-weight:900;font-size:1.6rem;letter-spacing:-.01em;margin:0 0 20px}
+.more .grid{padding-bottom:0}
+.art{max-width:46rem;margin:0 auto;padding:36px 20px 64px}
+.txt p{font-size:1.15rem;line-height:1.75;margin:0 0 1.15em;max-width:42rem}
+.txt h3{font-family:var(--disp);font-weight:900;font-size:1.5rem;letter-spacing:-.01em;margin:1.7em 0 .3em;padding-bottom:8px;border-bottom:3px solid var(--green)}
+.txt h3{display:block}
+.box{border-radius:14px;padding:18px 22px;margin:1.6em 0}
+.box strong{display:block;font-family:var(--disp);font-weight:900;font-size:1.02rem;margin-bottom:4px}
+.box p{margin:0!important;font-size:1.05rem!important;line-height:1.6!important}
+.box.purple{background:var(--purple-bg);color:var(--ink)}
+.box.purple strong{color:var(--purple-fg)}
+.box.green{background:var(--green-bg);color:var(--ink)}
+.box.green strong{color:var(--green-fg)}
+.nav{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;padding-top:28px;border-top:1.5px solid var(--line)}
+.nav a{border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.nav a:hover{border-color:var(--mag)}
+.nav small{color:var(--muted);font-family:var(--kick);font-weight:600;font-size:.95rem;letter-spacing:.04em}
+.nav a:last-child{text-align:right}
+.nav span{font-family:var(--disp);font-weight:900;font-size:.98rem;line-height:1.25}
+
+footer{background:var(--navy);color:#9FB0C0;padding:36px 0 30px}
+footer .wrap{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.foot-name{font-family:var(--disp);font-weight:900;font-size:1.2rem;color:#fff}
+.foot-name b{color:var(--mag);font-weight:900}
+.social{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.social a{font:700 .9rem var(--text);color:#fff;border:1.5px solid #2A3F55;border-radius:999px;padding:6px 15px}
+.social a:hover{border-color:var(--green);color:var(--green)}
+footer small{font-size:.9rem;color:#9FB0C0}
+
+@media (max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}.card.feat{grid-column:span 2}}
+@media (max-width:620px){
+  .grid{grid-template-columns:1fr}
+  .card.feat{grid-column:auto;flex-direction:column}
+  .card.feat .thumb{min-height:0;aspect-ratio:16/9;flex:none}
+  .card.feat .body{padding:20px}
+  .nav{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.ic{width:18px;height:18px;display:block;fill:currentColor}
+.social a{width:46px;height:46px;padding:0;display:grid;place-items:center;border-radius:50%}
+.social .ic{width:21px;height:21px}
+.social a:hover{background:var(--green);border-color:var(--green);color:var(--navy)}
+.thumb img,.shot .img img,.pv-s .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pv-s .im svg{position:absolute;inset:0;width:100%;height:100%}
+.secret{position:absolute;left:36%;top:33%;width:28%;height:34%;display:block;opacity:0;cursor:default}
+.pager{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:0 0 64px}
+.pg{min-width:46px;height:46px;padding:0 16px;display:grid;place-items:center;border:2px solid var(--line);border-radius:999px;font-weight:800;font-size:.95rem}
+a.pg:hover{border-color:var(--mag)}
+.pg.on{background:var(--navy);color:var(--green);border-color:var(--navy)}
+.pg.off{opacity:.4}.pg.dots{border-color:transparent}
+:root{--btn-bg:#0D1B2A;--btn-fg:#12F693}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--btn-bg:#12F693;--btn-fg:#0D1B2A}.pg.on{background:var(--green);color:var(--navy);border-color:var(--green)}}
+.btn{font:800 .95rem var(--text);border:2px solid var(--btn-bg);background:var(--btn-bg);color:var(--btn-fg);border-radius:999px;padding:10px 20px;cursor:pointer;display:inline-block}
+.btn:hover{border-color:var(--mag)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.sm{padding:6px 14px;font-size:.85rem}
+.btn.danger{background:transparent;color:#C21F4B;border-color:#C21F4B}
+.btn.ok{background:var(--green);color:var(--navy);border-color:var(--green)}
+.adm{padding-top:36px;padding-bottom:64px}
+.adm h1,.login h1{font-family:var(--disp);font-weight:900;font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:-.02em;margin:0}
+.adm-top{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-end;margin-bottom:8px}
+.adm-top p{margin:6px 0 0;color:var(--muted)}
+.adm-act{display:flex;flex-wrap:wrap;gap:8px}
+.tbl{border:1.5px solid var(--line);border-radius:16px;overflow:hidden}
+.row{display:grid;grid-template-columns:1fr auto auto;gap:12px 18px;align-items:center;padding:14px 18px;border-top:1.5px solid var(--line);background:var(--surface)}
+.row:first-child{border-top:0}
+.r-main strong{display:block;font-family:var(--disp);font-weight:900;line-height:1.25}
+.r-sub{color:var(--muted);font-size:.85rem}
+.st{font-family:var(--kick);font-weight:600;letter-spacing:.04em;font-size:1rem;padding:2px 12px;border-radius:999px;white-space:nowrap}
+.st-publicada{background:var(--green-bg);color:var(--green-fg)}
+.st-pendiente{background:var(--purple-bg);color:var(--purple-fg)}
+.st-borrador{background:var(--gray-bg);color:var(--gray-fg)}
+.r-act{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.login{max-width:26rem;margin:56px auto 72px;display:grid;gap:14px}
+.login p{margin:0;color:var(--muted)}
+.lnk{color:var(--muted);font-weight:700}
+label.f{display:grid;gap:6px;font-weight:800;font-size:.92rem}
+.f input,.f select,.f textarea{font:500 1rem var(--text);color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:10px 14px;width:100%}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--mag);outline:none}
+.f small{font-weight:600;color:var(--muted)}
+.err{color:#C21F4B!important;font-weight:700;min-height:1.2em}
+.ed{display:grid;grid-template-columns:1.35fr 1fr;gap:28px;align-items:start;margin-top:22px}
+.ed-col{display:grid;gap:16px}
+.box2{border:1.5px solid var(--line);border-radius:16px;padding:18px;display:grid;gap:14px;background:var(--surface)}
+.box2 h2{margin:0;font-family:var(--disp);font-weight:900;font-size:1.1rem}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tools{margin-top:22px}
+.tools summary{cursor:pointer;font-weight:800}
+.tools textarea{width:100%;min-height:140px;font:500 .85rem monospace;background:var(--bg);color:var(--ink);border:2px solid var(--line);border-radius:12px;padding:10px}
+.pv-g{border-radius:12px;padding:14px;background:#fff;color:#202124;font-family:Arial,sans-serif}
+.pv-g .u{color:#006621;font-size:.85rem}.pv-g .t{color:#1a0dab;font-size:1.15rem;line-height:1.3}.pv-g .d{color:#4d5156;font-size:.9rem}
+.pv-s{border:1.5px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg)}
+.pv-s .im{aspect-ratio:1200/630;background:var(--navy);position:relative}
+.pv-s .tx{padding:10px 14px;display:grid;gap:2px}.pv-s small{color:var(--muted)}.pv-s b{font-family:var(--disp)}
+.msg{font-weight:800;color:var(--green-fg);min-height:1.2em;margin:12px 0 0}
+.prev-banner{background:var(--purple-bg);color:var(--purple-fg);font-weight:800;text-align:center;padding:10px 20px}
+@media (max-width:860px){.ed{grid-template-columns:1fr}}
+@media (max-width:760px){.row{grid-template-columns:1fr}.r-act{justify-content:flex-start}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol><symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z"/></symbol><symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></symbol><symbol id="i-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></symbol><symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol><symbol id="i-tt" viewBox="0 0 24 24"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol><symbol id="i-li" viewBox="0 32 448 448"><path fill="currentColor" d="M416 32L31.9 32C14.3 32 0 46.5 0 64.3L0 447.7C0 465.5 14.3 480 31.9 480L416 480c17.6 0 32-14.5 32-32.3l0-383.4C448 46.5 433.6 32 416 32zM135.4 416l-66.4 0 0-213.8 66.5 0 0 213.8-.1 0zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77zM384.3 416l-66.4 0 0-104c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9l0 105.8-66.4 0 0-213.8 63.7 0 0 29.2 .9 0c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9l0 117.2z"/></symbol><symbol id="i-web" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c2.8 2.6 4.2 5.8 4.2 9.5s-1.4 6.9-4.2 9.5c-2.8-2.6-4.2-5.8-4.2-9.5S9.2 5.1 12 2.5z"/></g></symbol><symbol id="i-ml" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6.5L21 7"/></g></symbol><symbol id="i-cp" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></g></symbol><symbol id="i-nt" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5.5" r="2.8"/><circle cx="6" cy="12" r="2.8"/><circle cx="18" cy="18.5" r="2.8"/><path d="m8.5 10.6 7-4M8.5 13.4l7 4"/></g></symbol></defs></svg>
+<div class="bar-top"></div>
+<nav class="nav-top" aria-label="Menú principal"><div class="wrap"><a class="logo" href="#">Concienc<b>IA</b> Marema</a><div class="menu"><a href="#">Home</a><a href="https://tecnomarema.com.ar/login" target="_blank" rel="noopener">Aula virtual</a><a class="cta" href="https://tecnomarema.com.ar/cursos" target="_blank" rel="noopener">Ver cursos</a><a class="brand" href="https://tecnomarema.com.ar" target="_blank" rel="noopener" aria-label="TecnoMarema"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG8AAABgCAYAAAATkyy1AAAZVklEQVR42u1deXiU1bn/ved8M1km+76QFQhbUHapSCFI7aLPLd4KaOu9tFVvq5VFvVbRaoKKdakWaavWVh97a69t0qpdsHrRJiiIEJAtQCAb2SAkITOTbbbvnHP/mG9iAgmEMBMw5H2eeZJn5ptvZs573vf83t/5nXMIw2BKKU5EYseRIyszExN+Eh0WHk9EABHhi25KKQmFJput5diplnsX5Ez6g+/3joTfxgHgQH39GjXCzSWFenfPrjUAUGj87kCaFsibFxYWcsaYKPz0o8njEhOfASCElPTPUydYnbMbGhHUF7hjEgBdKYwLDcN10cnSzBjmT8594tkPP3x7KVCXrxRbRyQD+fmBTpeqrrX1H2mxsV8HIB6vLuOPVu5HCOOQX2jXeY2B4JQCGyfOwt3pOToA7XDLyT9PTkhaGuj0SQF2nNheWf71uWMnvAtAP9hp1xaUfgATETRiUCPAeQSCW0mYiLB1znXIDLHobim1op2ffOPWL83/ZyAdqAXIcQRALb3nnpCcpNTnACgAbF3VATikQJBmgkdJjAxTMBHhlMeN9TVl+M3kq8jMGK6deuU6LFiw2fjtZPz1c9QHKJsQkXx41d2rYyxhkwCITS3H2aaWRkRpJgilMJJMVwrRmgl/OlGHj63NHICeZAmfXfzbV35IRKK4uDgg4MXvN83Pz2cLFy5U4xYtSp49dtzbIWYz6xY6+/7BT8mmu410OfKMiOCWEpXdHfhOSjYYoCxBQVe356S/cfeSm9oBsC1btvj1p/t9zPPl+Krmptez4xNXABDP15bztUf3It4cBF2NRNcZYxARWj0uvDRpDr6Xmq0D0A61nPzFlISkVUopjYj0SzZtKqU4IxKbSkvnjYmJWwFA1jm7+IbackSaRl66PN2EUgjjGp6uOYhWt0sDIDKiou967ZMtMxhjemFhIb9UnUcAlAIoNyPjRTPnCgCerD6IFrcL5hGaLvtCFyCYcRxzdOFntYcBgCwmM//SuJyNSim+dOlSv2Y75seoY0Qkd1QeWZEeH38FALnN1sLebKpFtMk8otPl6eAlymTGqw1VONBpYwDExPikeZurDi8hIqGUYpeU83ylQX5xcdj4pOSnASgBUEHVAajLxGl9UCARHFKgoPKAL9JkbnzKcwvy88O8zaXoUoo8RkTy1gkTfhJtCU8AIN44XsM+tjYjQjNBXmYOFEohUjPhn63H8bfmBgZAJoVHZDx2680/IS9dxi4J5xmDsHxre8mk5JjoewHINreLP11zEBaujXiQcpZshCDG8Vh1GbqEzgHI3OQx9/68uDgTgFzqB/BCfviSnIhEzckTmzMTkhYDEA9V7OPPHTs84kuDwZQOLR4Xnhh3Je7PnCQA8LITje9MTRlzoz9oM+YPx+2oqPhaekLiYgCirNPGf9NQeVmBlHOlz411R1Dr6OIARE5SypJ3y8uvYV7wwi+K85RShKIifG3lyqDspMQXGEgBwGNVZeiWOvgImGf1R+lgJoZWtwtPVB8EAJiJVG5S4i+Vt+0VLgC8XEjkcVq2TDy5euWP48LCcwCIf7Q0ci9/ab5sx7r+Sodokxl/aqr18Z4yLTLqyg8OH1xJRFJdgA+GFLb5SrGFgExZNDf52tzpvzNxHtwldPb9sh1k1z0jlr+8ACgOtxSo6O7Ad5IyiRGp8NDQuXzKlFcWT53qBEBD4T2H5PWF3tJAXTtx2jMhJnMsAPXrhkra12GFhY+MSVZ/j30RmgnbbC34nxPHCICKD7VEL1/45SeJSBYUFAwpdZ6385RSfBGR/pdtWxalx8Z/G4Cod1w+/OWFODCMm3y8JwMgxsXF3/Grks2zAcihMC9DijwFsC9fMe0xE+cMAJ6ouXz4ywsBL8GModbZhZ/VHiYACDMH8cWTc39ORGooZdt5Oa+4uFgjIlFadfR7cWER8wDo22wt/I9NtYjWTJd9aTAY8BKlGbxnh40DEOPik+ZtOnhgOQ2hdBi084xJVrl2w4bE7ITkn0ovf8l6+MvR0mCQEJ3QLQQKqry8JwPUjLT0Z772wgsR51s6DPpC32Ti0abjz4xPTL4fgP6749XaDw7tRJwpaDTqztOBVo8bb14xD99MGKMD0D6qLH9mwfhJDxQrpeUNctKWDdJxDIAoLCmZOiYmdjUAccrt4k/VHIKFa5cd8eyP8S+IMTxeXYYuXecAxIyM7B8+v3lz9kJg0NNGg02bRERqwczp60JMZjMA9VxtOVV3dxr6y1E7H5PGjPuBThtebKggACrMZI647oopz50PeGGDiDpORGLbkSPXx4dF3AhAHOy0aaP85YWDl0huwsbaIzjm6NIA6DnxSUt+v23L9UQkBiOXZ+dwHAFQX7nvPsuElOSfk6FBLKg6MMpf+iF1mhlDq8eF9dVlAMBMROraK6Y/hpUrg5YOApOc1XklJSWciOSv7r//jtiw8PEAxN+bG9mmluOj/KWfoq8X78kAiOSw8BkfrLzzzsHoPQd8MV8p9t3MTJk1f37qnPHj/mzWTCav/tLgL9loQe4PY4bes6K7A99OyiROpMKCgue1jon9w5ql37bjLHrPASOvwAAp8yZPfDYsOCQCgHqpvuJz/nI06vxivXnPN7y8p0wIC4+491u3rCUitXDhQnZeabOwsJAzIrGtvHx2ekLSLQBEraOLvVB7BJHaKH8ZCAeGcQ1P1RxCq9vFAYjMqNg7f12yefaiRYsG1Hv2NyCSUoqISB63WnckR0XNBiB/cGgn/5/jNYgdRZgBMZ/aenX6RDydM00A4PXtts3pkdFfNWSV4pyR59Nffnr48H8lR0XNASC3Wg3+ctRxAQUvUZoZrzZWYX+HlQMQaRFRX9lUfmDZQLwn6680ePq3vw3PSUt7AoD06i/3QykVsMV8jAj8Ah50Hvc6d+00+M8KBG3mlALrqsp8WVFOS057bk5+fgT60XtqZ7YjiSMnGguiLZZ4AOL3x6v5VltLwPhLAtCl69AvYL1eKNd6lkh36jrEAPciIoRx7azfxSF1uKUc1GcFYuzz6T3/2tzAvpkwRqRERKa+/IPbVhPR48VKaQD0M8Y8g09Tb3744dQl8+eXhpjNWqvbRfNLN1OL2wVTAL4wEcEpBB7MmozpEdHwSAV2nl2bgfBEdRnKOu3gRHgoazJyw6P63EsZY8pJlxMPVuyF3k8W4URo1z1YnpSB5UkZcEt5xnchEB6vPoBDnXYEcy0ganBGBIcQGBsahi2zFysL16Td6fS8tPXDKQ8uvr7GoCrl6ZFHRCSrm5o2hJjNZgDiudrDrMbRGdCo05XC/OgEXB0VN+T7vNxQ0eOQBTGJmBkRM+C1rx+vxi57GyxaX0Ld9993U7NxTVT8gO9/sf4oPEohBAhI9EmlYOEcBzpseLG+gu7PnITI4ODgb0y6YiMR3dCbtGa9+cuth8v+LT0hIQ+G/vK3DVWI1gILUghAh+6BriScUsCjJDxKQlcKop+HbrzuURJuJXqu9QVJp+6BUApuKfu8zyUlpFJYGJ0IlxJ9BnsC4JIC6cEWTA2LMj7n9M/9/G+gSUFhgJeNdUdwzNB7TkpOvf5vRw8t6M17MvjWjxcW8gmpac8ZgzqtqypDtxBgw8BfBjEGjRiCGYeJGEzEoA0AGDTjdRMxmMl7PRsEYNGIwIiQF5uIIMYh1ZmpanZkDCI1Uw90H27A0jsLmBgZek8veDExpqbGJb6IpUv5UoNj1pQBUg43NNwfFx4xzuAv+bstjYgyBZ6/JADNbhea3E7oUoITQRrLpCz9gItmt7On9ysoEAguKc/ZqL5OOCM8GlkhFtQ7umFmvGdHCgVgUUxSnxR6KfCehU11WJGSxeZHJ4jM6JjJ7xc8ei8RPauU4hoA9dp7b6elxcc9DEB2CZ09Vn0A5mHgLqVSCOEc9x/9DBoxSChvsep2Y+PEmfiPlCzoSvX0eI+SWL5vG4522xHMNKPhvfDawjV0S/2snUQohVCuYW5kHI521SCYcwj1eUNdEx1/ds5wmM3XIfOrDuD9WXnMBCanZ2Q9nP9e4asAbIyI5IJpc9dbzEGRAOTL9RW0v8M2rDPkDiHQrnvQqevo1HV06B54BvjsbqGjo+c677X9ZQffM20eN+qcXd7OYjx7bWzSGSlzSlgkskLCII3nWt0uNDi7+7zv4vCeGj6xtuD3jTVevafFEnnD5KueIiLJ3tuzKy8tPmEZAFnr6NI21A0/f+kbk3o/6AKv9T3nURLbba09UB8A5kXFI8EcDI+U4CC4pMCXoxK86Neo8T7raMNJtxMXO48KpRCmmfDM57ynnJiY9N1XSj6YzyakjCkwMRYEAE96BaHDkjJPj5LTH/64FgDCuIbPOqwQRvpVSiElKATTwqPhkMKrp+QcC2MS+zh9m7UFZnbxE6hP73nM2YVnjx0GABVmNpuuyZ16Lws2m2cDUGUdNvbWyXpEjTD9pYVrqOruRI2jyxtZhrvzYhKgGyVFRrAFMyKivSiTMXiUxE77KURp5oHp+2EGL5GaGX84UYPa7k4OQJHT/Q3mc5OJMW/PHEFkr4/k6tA9+NRInb5+uTAmERGaCZ3Cg6siY2HhGnTlRa3lXe2ocXQhwigb6CJ7z4esNWLQmNdlQWaznXV3O0oB0ARLhFyelAG77oY2UrQphqc0IvyrralPyTA5LAo5oeFwSNEDYITh2K3WFnQKD0x0aeBOH3X33dRspAaHSgBk87g+ZrtqagocuscDAA9mTUZKUOig6qYvkoVyju32VujKW4royrvZ29zIOIRxDfOjE3oaCQBKrM3G/xc/DzEADikwNiQca9InAADZXU7Ppj07X2A3X3NNcW1r6+sAWHJQiLgvcxI6hGdEKcOCGUdVdycOddoNEOB1ypei4zAtPBqpQSGQhmPbdQ8+s59CCNMuCT0qEaFLF3g4ewqiTGYBgO1tbHz9kRtu+ogppdjWmmMP2p1OOwC6LTVbzYqIRYfQh4UaG6604xEebLE293l+engMVqRk90ByANjd3oYGpwNBjF30PWR86TIvNgHLkzMVAGrsaLf/fnfxg0opxgDQHVdf3VbeWLceAAtiXOaPnTqidCoSAIhhi/Wkt1EMDiUzxIIVqVk9PRwAtlib4Vbyklg3o+AtbwrGTgX3/gz2SdWR9a8uu6MNADEyFvbNXfuT5xusbZUA2Fdik+SNCWmweUYGePHtibKv3YYmlxOMPt/B1AdKOBEkFLZaWxDEWB/i+mKYRgSrx4Nbk7NwVWScBMDKW5sPLZs+53mfVIXBp40vKhK7a6ruE8Ysw6PZUxCpmQakqb5QzoNXnXzS7cAOe2sPr+p7TcJLdNc4unC4y47gXoT1xSoNXFIiyRyMtVlTAEA5haBP6mvvIkAUGdUDM1KGUErxJTPn/K2mpXkTAD7eEiHuTM8ZMdHnS58lbSfPaCipvE7cZm2B1eOG6SILijkR2oUH92VORGpwiADA99TXbrptxpwtUim+zFCSsb7ZRdHO2opVHU6nGwBWp09QEy0R3nm9YS4eJPqfjD3n+/p5jzIcF8w4PrG3wiVFD0jxvu6NvC3WZmOsU2e9V0BLAyJ0Ch0zw2Nw+5hxCgBaHd3OwoN7VvkEYr3LCN+ALQGw78yZX330ZOMvAfBIzSQfyp4ChxTnrS250DQXwjRwImOi1jsRGsz4OTuRhXvfZ2ashzUyGXOEwYyjsrsDld2dfSZYTcSgK4WdRokglDciwzVTHyLc978KcMrUpcKjY6cimHEJgJc1n3xyww03VZcAnHqd00CnDewEgG579RnL0zffdTjOEpYMADfs2cK2tJ1ExDDMNhAAt5KYYolCanAIei9WUwB22FvRpetnUHm++boZETGINpn73HN/hw0n3U6YGYNbCuSGRSE5KKTPNZ1Cx077qZ5t2IMYw9zIuDPq3d3tbbAaQ4m/W0IjQpvuxpL4MfjfK+ZJAKixtZ24bkPB5IqCjZ0EKAOj9E+59pyHUF2xfG7WuD8CELva2/h1u/7lrX2GacB2SAFPPxI8C9fOWn92C3GG9C+Eaz3qt4HuzYj6zNwrw6E4rbMGUvrnsy2zF2OCJUJIgL+5r/TmW6fN+VN/G82dTe6Ompbm7Zlx8XMAiNXlu/mvGyoRN0yqaQbqt9Y6V+Szfub35GljFRtgDvD0e/fHMskAjXsaEVrcLjyUPQX5Y6cKALy8rWXzpNiEwcvdAaiioiIiQB6ob7jb4XHD4D1ValDIsPGe/gYs57qmv3uLYQIsDN6dcXMs4VidPkEBgM3pQOGOTx8mIlVUVDRghurXilWxlkd5elVb64vZ0bF3AtBfrK/Q7jmyG/Gjuz/4PepOedx4Lfcq3JKUqQPQttbXvDQ/PfsuVVysUV6ePhBp3a+VoEQqpei19zf/1Nbd1Q6A3ZaarWZHxKJzBPGelwLvatc9yItJxPKkTAWANbTb2x8v/MNPlVJUUFIiz4YNBrTi4mItLy9P31Vbs2ZmeubPAegfnGrSluz96LLcOzpQY7tD6nh/5iLMiYzVAWhv7d97z7eunL7B1/4Dv/cslpeXJ5RS/OZ3nn+pzen4DABfHJskb0z08p6jGwr4pzS4NSULcyJjJQBebbd+9q0H1r6klOJ5eXni7I4/d72MytW/cG0vP/SoNDi1Rwzeczik3yPVfPxlsjkYa7MmA4B0Skl//WzHo/Tee66iXu0/VOf18J43TJ+1qd7a9jYAnhMaod9l8J6j0XcB/KXuwX2Zk5ASFKoD0PYfr3/n3kVf39Sbv7wg5/XmPf++/aP8DpfTDYBW9eE9R20o/OWsiBjcnjpWASCby9n+9r5d9ymlqGCQ+otBtTsRyRKAr7z+xgOVJ5teMHhP4eU9R5Hn0PhL6eUvORcA+MeVR15+yuAvB3vO7KCDZqGxodmbmz983Opy1ADgy5My5OKYZNh1z2j6PI90afO48c3ENHw1LlkC4Mds1ronit5er5RiecCgz1oYtPOISJWUlLBnb7+9o7Ti6HqjA8mCsbkwERstGwYbcUohXDPh0excAFACirbVVv5457p17QCoN/E8mPudl/WcwNzW+nFadOzVAMSa8t385YaK0X03B1EatHhcWJs1BQUGf7nnRMO2GSlp1wzlhJOhYA1FgCytPLLGLYQbAB7ImqxSR6De09/FeLcUyAkNx5oML39pdznF3/fuuef0SdaAOY+IpFRK+9aceaXlxxsLAfDkoBD535mT0C5Gx76B2827lO3hrFxEaWYJgO9vOv6b/G/8WymMU9AC7jwAKDAUZx+WfvTjdqfTCoC+35v3HI2/fmu6vJhELEvO8OovO9utL7/7/kNKKVZQUDCksWbIrezL0btqq1fPTM/aAEB8cKqJ37j3I4SP8p5nNLJTCh9/KQDwv+zfveamK2e9cCGneV2I88gId1VvbTs8Jip6PAD5nwe28z+frEO0aXQ/Th9IOeVx4Y4x47Bx4iwBgFW0te7PiY2f4d1VihSGODE/ZHKEPoe08mBj3WphdIRHxuaO8p69IsMlJZKCQvCgV38JpxS0/UTt3QTIIu/qsSH38Atitny859dyp71Xe6rlHQB8fGi4+FF6Duz6KO/Zw19mTEJKkFd/ubeh7p0VubO2Dpa/DJjzAKCoqAhKKdpZX3VPu8PhAUCr0nPUhFAv70mXseM6hY5ZkTG4fYyXvzzV3dX9x0P77lFK0bIBpA3DMub1B1721tY8dWV65gMA9MKmOm1F2XbEXKZjn2+G/K1p83FdbLIOQCupq34oL2PsT/1x5KhfIs837iml2Pq/b3ripN3WDIAtS0qX18Ymof0y5D19J5YsiR+D62KTJQBWa7fV3rb+6ReNvcP8svTPL87zHeRQdPfdnWUNdQ8Y91UFY6d6N8e5jCLPx19GaCY8MtbLX0qAfVpffV/1K6/YYezdfck4z8e8qMJCvjj3yt/VW09tA8BmRcTIFSnZPQrjyyXqbLobd6aNxwRLhATA9zXWb7t56sx3jHTptwW3/pxHVUVLl4JAam994yqn7iEA6sGsSUgNvjx4T58aOyc0HKszJgCAsrmcYnP5wVVEJAz9pfLn5/nVfIPxgfq613PHpK0AIF6qr+D3lO9G3Ag/N/1z/eVc3JKUoQPQPmk49ot5aVmrzud0rosReQCAgoICpZSiv5aVrrU7uq0A6La0sXJ25Mha5z4QulwUk4hbkjIkANbYbrc+WfjW00opKikokIGIdL+br5ftrqteOSMtayMMveeNht5zJJYOXv5S4v9m5mG2ob98++Delf+eO/2X59JfXjKRBwB5hmTiew89+lqT3XYYgLbYWOc+EsGLyQAp/5GSidle4lmrabeW/vuP1rw8GP3lJeU83zr3/W+80VXWUHuvMc7JR8bmIlzT4DH2POEj4KERg0NKJJp7+EvlFAJ/LS3Npy1bfNGmAhXtATMfeKmztRWlRUbfBEDfWHdE++8jexDM2Ig4NNFX1708eQ5WpGTpALTS4/V/npOavtRfTMqAACnAv00ppeiFf7y17vbrbvimxWzmq8ZMkDMjYtgptwucvviKT115Zw2uMtKl1eXs+svuT89Lf3nJmu8Ylff27FrT7XGrEWpSKaVsjm79tY//tbr37w501A+HAxkRyXf377lxSnrGI7qmTSMieBeofnHBi4LyHo6tlNIdjn37Wk4+sGzyFZsL/TDdMxj7f3i78eB4lwhbAAAAAElFTkSuQmCC" alt="TecnoMarema" height="40"></a></div></div></nav>
+<div id="app"></div>
+<div class="bar-bot"></div>
+<footer><div class="wrap"><div class="foot-name">Concienc<b>IA</b> Marema</div><nav class="social" aria-label="Redes sociales"><a href="https://www.tecnomarema.com.ar/" target="_blank" rel="noopener" aria-label="Web" title="Web"><svg class="ic" aria-hidden="true"><use href="#i-web"/></svg></a><a href="https://www.linkedin.com/company/tecnomarema/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-li"/></svg></a><a href="https://www.facebook.com/tecnomarema.ar/" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg class="ic" aria-hidden="true"><use href="#i-fb"/></svg></a><a href="https://www.instagram.com/tecno.marema/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg class="ic" aria-hidden="true"><use href="#i-ig"/></svg></a><a href="https://www.youtube.com/@TecnoMarema" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg class="ic" aria-hidden="true"><use href="#i-yt"/></svg></a><a href="https://www.tiktok.com/@tecnomarema" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg class="ic" aria-hidden="true"><use href="#i-tt"/></svg></a><a href="https://x.com/tecnomarema" target="_blank" rel="noopener" aria-label="X" title="X"><svg class="ic" aria-hidden="true"><use href="#i-x"/></svg></a></nav><small>© 2026 Todos los derechos reservados por TecnoMarema - ConciencIA Marema</small></div></footer>
+
+<script>
+var CATS={ia:'🤖 Inteligencia Artificial',prog:'💻 Programación',dis:'🎨 Diseño',rob:'🤖 Robótica',tec:'⚙️ Tecnología',edu:'📚 Educación',act:'📰 Actualidad',car:'💼 Carrera &amp; Empleabilidad',com:'🌟 Comunidad &amp; Historias de Éxito',otr:'🌐 Otros temas'};
+var SEED=[
+{id:'ia-en-el-aula',cat:'edu',fecha:'28 oct 2026',min:5,
+ t:'La IA llega al aula: qué cambia para docentes y estudiantes',
+ e:'Cada vez más escuelas y universidades incorporan asistentes de IA. Qué se gana, qué se pierde y qué preguntas conviene hacerse.',
+ b:['Este es un texto de ejemplo para mostrar el diseño. Reemplazalo por tu nota real.','<h3>Qué se gana</h3>','Tiempo para planificar, materiales más variados y apoyo personalizado para cada estudiante.','<box purple|En el aula|Probá la herramienta antes de proponerla y contale al grupo para qué la usás.>','<h3>Qué conviene cuidar</h3>','La dependencia de la herramienta y la verificación de lo que responde. La IA ayuda, pero el criterio sigue siendo de la persona.']},
+{id:'modelos-de-lenguaje',cat:'ia',fecha:'25 oct 2026',min:6,
+ t:'Modelos de lenguaje: cómo funcionan, explicado sin tecnicismos',
+ e:'Una guía corta para entender qué hace un chatbot cuando te responde y por qué a veces se equivoca.',
+ b:['Texto de ejemplo. Acá va el desarrollo de la nota.','<h3>Predecir la próxima palabra</h3>','Un modelo de lenguaje aprende patrones a partir de muchísimo texto y los usa para armar respuestas.','<box green|Resumen|Responde con lo más probable, no necesariamente con lo más cierto.>']},
+{id:'cinco-herramientas',cat:'tec',fecha:'21 oct 2026',min:7,
+ t:'Cinco herramientas de IA para crear materiales de clase',
+ e:'Presentaciones, imágenes, audio y video: una selección práctica con ventajas y límites de cada una.',
+ b:['Texto de ejemplo. Reemplazalo con tu selección real de herramientas.','<h3>Cómo elegir</h3>','Fijate en tres cosas: para qué sirve, cuánto cuesta y qué datos le entregás.','<box purple|Para el docente|Declará siempre cuando un material fue creado con ayuda de IA.>']},
+{id:'etica-y-datos',cat:'act',fecha:'17 oct 2026',min:6,
+ t:'Datos personales y IA: lo que conviene saber antes de usarla',
+ e:'Qué pasa con la información que escribís en un chatbot y cómo protegerte sin dejar de aprovecharlo.',
+ b:['Texto de ejemplo. Acá podés desarrollar el tema con tus fuentes.','<h3>Regla práctica</h3>','Si no lo publicarías, pensalo dos veces antes de pegarlo en una herramienta.','<box green|Para recordar|Revisá la configuración de privacidad de cada servicio.>']},
+{id:'agentes-ia',cat:'ia',fecha:'12 oct 2026',min:5,
+ t:'Qué son los agentes de IA y por qué se habla tanto de ellos',
+ e:'Más que responder preguntas, empiezan a ejecutar tareas. Un panorama de lo que ya se puede hacer.',
+ b:['Texto de ejemplo para mostrar el formato de lectura.','<h3>De responder a hacer</h3>','Un agente combina un modelo con herramientas para completar pasos de una tarea.','<box purple|Ojo|Todo lo que un agente hace debería poder revisarse.>']},
+{id:'plan-de-clase',cat:'edu',fecha:'06 oct 2026',min:8,
+ t:'Cómo armar un plan de clase con IA en cinco pasos',
+ e:'Del objetivo a la actividad final, con un ejemplo de pedido que podés copiar y adaptar.',
+ b:['Texto de ejemplo. Reemplazalo con tu guía paso a paso.','<h3>Empezá por el objetivo</h3>','Cuanto más claro el objetivo, mejor la respuesta que vas a recibir.','<box green|Resumen|Pedí, revisá, ajustá y recién después llevalo al aula.>']},
+{id:'portafolio-que-consigue-entrevistas',cat:'car',fecha:'01 oct 2026',
+ t:'Cómo armar un portafolio que consiga entrevistas',
+ e:'Qué proyectos mostrar, cómo contarlos y dónde publicarlos para destacar cuando buscás tu primer trabajo.',
+ b:['Texto de ejemplo. Reemplazalo con tu nota real.','<h3>Pocos proyectos, bien contados</h3>','Tres proyectos con una explicación clara valen más que diez sin contexto.','<box green|Para recordar|Contá qué problema resolvía cada proyecto y qué aprendiste.>']},
+{id:'historias-de-la-comunidad',cat:'com',fecha:'28 sep 2026',
+ t:'Historias de la comunidad: así dio el salto una alumna',
+ e:'Un caso de ejemplo para mostrar el formato de las historias de éxito de la plataforma.',
+ b:['Texto de ejemplo. Acá va el relato real de una alumna o un alumno.','<h3>El punto de partida</h3>','Contá de dónde venía, qué cursó y qué objetivo tenía.','<box purple|Tu historia también cuenta|Si querés compartir tu experiencia, escribinos.>']},
+{id:'ui-ux-la-diferencia',cat:'dis',fecha:'22 sep 2026',
+ t:'UI y UX: la diferencia que importa al diseñar una web',
+ e:'Una explicación simple de qué resuelve cada una y por qué conviene pensarlas juntas.',
+ b:['Texto de ejemplo para mostrar el formato de las notas de diseño.','<h3>UI es lo que se ve</h3>','Colores, tipografías y botones: la capa visual de un producto.','<h3>UX es cómo se siente</h3>','Qué tan fácil es llegar a lo que buscás y completar una tarea.']}
+
+];
+var KEY='cm_notas_v1',MES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+function fmt(iso){var p=(iso||'').split('-');return p.length===3?(+p[2])+' '+MES[+p[1]-1]+' '+p[0]:'';}
+function norm(n){
+  if(!n.iso){var m=/(\d+)\s+(\w+)\s+(\d{4})/.exec(n.fecha||'');n.iso=m?m[3]+'-'+('0'+(MES.indexOf(m[2])+1)).slice(-2)+'-'+('0'+m[1]).slice(-2):new Date().toISOString().slice(0,10);}
+  n.fecha=fmt(n.iso);n.estado=n.estado||'publicada';n.origen=n.origen||'manual';n.seo=n.seo||{};n.img=n.img||'';n.alt=n.alt||'';n.e=n.e||'';n.b=n.b||[];
+  return n;
+}
+function cargar(){try{var s=localStorage.getItem(KEY);if(s){var a=JSON.parse(s);if(Array.isArray(a))return a.map(norm);}}catch(e){}return JSON.parse(JSON.stringify(SEED)).map(norm);}
+function guardar(){try{localStorage.setItem(KEY,JSON.stringify(NOTAS));return true;}catch(e){return false;}}
+var NOTAS=cargar();
+
+var ART={
+ia:'<g fill="#12F693"><circle cx="78%" cy="32%" r="64" opacity=".18"/><circle cx="78%" cy="32%" r="30" opacity=".9"/></g><g fill="#CF30FF"><circle cx="16%" cy="82%" r="46" opacity=".85"/></g>',
+edu:'<g fill="#12F693"><rect x="9%" y="20%" width="48%" height="12" rx="6"/><rect x="9%" y="44%" width="66%" height="12" rx="6" opacity=".6"/></g><rect x="9%" y="68%" width="32%" height="12" rx="6" fill="#CF30FF"/>',
+her:'<g fill="#CF30FF"><rect x="62%" y="14%" width="84" height="84" rx="16" opacity=".9" transform="rotate(10)"/></g><g fill="#12F693"><rect x="12%" y="58%" width="54" height="54" rx="12"/></g>',
+eti:'<g stroke="#12F693" stroke-width="5" fill="none"><circle cx="50%" cy="50%" r="56"/></g><g stroke="#CF30FF" stroke-width="5" fill="none"><circle cx="50%" cy="50%" r="96" opacity=".7"/></g>'
+};
+var TONO={ia:'ia',dis:'ia',com:'ia',edu:'edu',car:'edu',otr:'edu',prog:'her',tec:'her',rob:'eti',act:'eti'};
+function art(c){return '<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">'+ART[TONO[c]]+'</svg>';}
+function bloque(p){
+  var m=/^<box (purple|green)\|([^|]*)\|(.*)>$/.exec(p);
+  if(m)return '<div class="box '+m[1]+'"><strong>'+m[2]+'</strong><p>'+m[3]+'</p></div>';
+  return /^<h3/.test(p)?p:'<p>'+p+'</p>';
+}
+
+var app=document.getElementById('app');
+var filtro='';
+
+function cabecera(){
+  return '<header class="mast"><div class="wrap"><div><span class="tag">Noticias de tecnología e IA</span>'+
+    '<h1>Concienc<span class="ia">IA</span><br>Marema</h1>'+
+    '<p>Todo sobre tecnología e inteligencia artificial, te lo contamos de manera clara.</p></div>'+
+    '<div class="panel"><svg aria-hidden="true" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".55"><path d="M30 60H130V120H150"/><path d="M370 50V110H250"/><path d="M40 250H120V190H150"/><path d="M360 240H290V190H250"/></g><g fill="#12F693" stroke="#0D1B2A" stroke-width="3"><circle cx="30" cy="60" r="9"/><circle cx="40" cy="250" r="9"/></g><g fill="#CF30FF" stroke="#0D1B2A" stroke-width="3"><circle cx="370" cy="50" r="9"/><circle cx="360" cy="240" r="9"/></g><rect x="150" y="105" width="100" height="90" rx="20" fill="#0D1B2A"/><text x="200" y="162" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="900" font-size="44" fill="#12F693">IA</text></svg><a class="secret" href="#admin" tabindex="-1" aria-hidden="true"></a></div></div></header>';
+}
+
+var pag=1,fe='todas',editId=null,cim='',ADM=false;
+var OGIMG='https://www.tecnomarema.com.ar/og-conciencia-marema.png';
+var DESC='Noticias de tecnología e inteligencia artificial explicadas de manera clara: programación, diseño, robótica, educación, empleo y comunidad. Por TecnoMarema.';
+var KW='noticias de tecnología, inteligencia artificial, IA, programación, diseño web, robótica, educación, empleabilidad, TecnoMarema, ConciencIA Marema';
+var RES=['admin','panel','editor','pagina'];
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function unesc(s){return String(s).replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&amp;/g,'&');}
+function slug(s){return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,70);}
+function esAdmin(){try{if(sessionStorage.getItem('cm_adm')==='1')return true;}catch(e){}return ADM;}
+function pub(){return NOTAS.filter(function(n){return n.estado==='publicada';}).sort(function(a,b){return a.iso<b.iso?1:-1;});}
+function pic(n){return n.img?'<img src="'+esc(n.img)+'" alt="'+esc(n.alt||n.t)+'" loading="lazy">':art(n.cat);}
+function meta(k,v,p){var a=p?'property':'name',el=document.head.querySelector('meta['+a+'="'+k+'"]');if(!el){el=document.createElement('meta');el.setAttribute(a,k);document.head.appendChild(el);}el.setAttribute('content',v);}
+function seo(o){
+  var url=location.href.split('#')[0]+(o.note?'#'+o.note.id:''),img=o.img&&/^https?:/.test(o.img)?o.img:OGIMG,n=o.note;
+  document.title=o.title;
+  meta('description',o.desc);meta('keywords',o.kw||KW);meta('robots',o.noindex?'noindex,nofollow':'index,follow,max-image-preview:large');
+  meta('og:title',o.title,1);meta('og:description',o.desc,1);meta('og:type',o.type||'website',1);meta('og:url',url,1);meta('og:image',img,1);
+  meta('twitter:title',o.title);meta('twitter:description',o.desc);meta('twitter:image',img);
+  var l=document.head.querySelector('link[rel=canonical]');if(!l){l=document.createElement('link');l.rel='canonical';document.head.appendChild(l);}l.href=url;
+  var org={'@type':'Organization',name:'TecnoMarema',url:'https://www.tecnomarema.com.ar/'};
+  var d=n?{'@context':'https://schema.org','@type':'Article',headline:n.t,description:o.desc,datePublished:n.iso,dateModified:n.iso,inLanguage:'es-AR',image:[img],keywords:o.kw||KW,author:org,publisher:org,mainEntityOfPage:url}:{'@context':'https://schema.org','@type':'Blog',name:'ConciencIA Marema',description:DESC,inLanguage:'es-AR',publisher:org};
+  document.getElementById('ld').textContent=JSON.stringify(d);
+}
+function tarjeta(n,feat){return '<a class="card'+(feat?' feat':'')+'" data-cat="'+n.cat+'" href="#'+n.id+'"><div class="thumb">'+pic(n)+'</div><div class="body"><span class="pill">'+CATS[n.cat]+'</span><h2>'+esc(n.t)+'</h2><p>'+esc(n.e)+'</p><div class="meta"><time datetime="'+n.iso+'">'+n.fecha+'</time><span>Leer nota</span></div></div></a>';}
+function pager(total){
+  if(total<2)return '';
+  var h='<nav class="pager" aria-label="Paginación">',nums=[],i;
+  h+=pag>1?'<a class="pg" rel="prev" href="#'+(pag===2?'':'pagina-'+(pag-1))+'">Anterior</a>':'<span class="pg off">Anterior</span>';
+  for(i=1;i<=total;i++){if(i===1||i===total||Math.abs(i-pag)<=1)nums.push(i);else if(nums[nums.length-1]!=='…')nums.push('…');}
+  nums.forEach(function(i){h+=i==='…'?'<span class="pg dots">…</span>':'<a class="pg'+(i===pag?' on':'')+'" href="#'+(i===1?'':'pagina-'+i)+'"'+(i===pag?' aria-current="page"':'')+'>'+i+'</a>';});
+  h+=pag<total?'<a class="pg" rel="next" href="#pagina-'+(pag+1)+'">Siguiente</a>':'<span class="pg off">Siguiente</span>';
+  return h+'</nav>';
+}
+function lista(){
+  var all=pub().filter(function(n){return !filtro||n.cat===filtro;});
+  var F=filtro?6:7,total=all.length<=F?1:1+Math.ceil((all.length-F)/6);
+  if(pag>total)pag=total;
+  var a=pag===1?0:F+(pag-2)*6,items=all.slice(a,pag===1?F:a+6);
+  seo({title:pag>1?'Página '+pag+' | ConciencIA Marema':'ConciencIA Marema | Noticias de tecnología e inteligencia artificial',desc:DESC,type:'website'});
+  var chips='<button class="chip" aria-pressed="'+(filtro==='')+'" data-f="">Todas</button>';
+  for(var k in CATS){chips+='<button class="chip" aria-pressed="'+(filtro===k)+'" data-f="'+k+'">'+CATS[k]+'</button>';}
+  var cards=items.map(function(n,i){return tarjeta(n,i===0&&!filtro&&pag===1);}).join('');
+  app.innerHTML=cabecera()+'<main class="wrap"><div class="chips" role="group" aria-label="Filtrar por tema">'+chips+'</div><section class="grid">'+(cards||'<p class="empty">No hay notas en este tema todavía.</p>')+'</section>'+pager(total)+'</main>';
+  app.querySelectorAll('.chip').forEach(function(b){b.addEventListener('click',function(){filtro=b.getAttribute('data-f');pag=1;if(location.hash&&location.hash!=='#'){location.hash='';}else{lista();}});});
+}
+
+/* ---- Panel ---- */
+function blocksToText(b){return (b||[]).map(function(p){var m;
+  if(m=/^<h3>(.*)<\/h3>$/.exec(p))return '## '+unesc(m[1]);
+  if(m=/^<box (purple|green)\|([^|]*)\|(.*)>$/.exec(p))return '::'+(m[1]==='purple'?'lila':'verde')+' '+unesc(m[2])+' | '+unesc(m[3]);
+  return unesc(p);}).join('\n\n');}
+function textToBlocks(t){return String(t).split(/\n\s*\n/).map(function(s){return s.trim();}).filter(Boolean).map(function(s){var m;
+  if(s.indexOf('## ')===0)return '<h3>'+esc(s.slice(3).trim())+'</h3>';
+  if(m=/^::(lila|verde)\s+([^|]*)\|([\s\S]*)$/.exec(s))return '<box '+(m[1]==='lila'?'purple':'green')+'|'+esc(m[2].trim())+'|'+esc(m[3].trim().replace(/\s*\n\s*/g,' '))+'>';
+  return esc(s.replace(/\s*\n\s*/g,' '));});}
+
+function login(){
+  if(esAdmin()){location.hash='panel';return;}
+  seo({title:'Acceso | ConciencIA Marema',desc:'Acceso al panel de notas.',noindex:1});
+  app.innerHTML='<main class="wrap"><div class="login"><h1>Panel de notas</h1><p>Ingresá para crear y editar las notas del blog.</p><label class="f">Usuario<input id="u" autocomplete="username"></label><label class="f">Contraseña<input id="p" type="password" autocomplete="current-password"></label><p class="err" id="err" role="alert"></p><button class="btn" id="go" type="button">Ingresar</button><a class="lnk" href="#">Volver al sitio</a></div></main>';
+  function go(){
+    var u=document.getElementById('u').value.trim(),p=document.getElementById('p').value;
+    if(btoa(u+':'+p)==='bWFyZW1hOnBhc3MxMjM0'){ADM=true;try{sessionStorage.setItem('cm_adm','1');}catch(e){}location.hash='panel';}
+    else{document.getElementById('err').textContent='Usuario o contraseña incorrectos.';}
+  }
+  document.getElementById('go').onclick=go;
+  app.querySelectorAll('input').forEach(function(i){i.addEventListener('keydown',function(e){if(e.key==='Enter')go();});});
+}
+
+function panel(msg){
+  if(!esAdmin()){location.hash='admin';return;}
+  seo({title:'Panel | ConciencIA Marema',desc:'Panel de notas.',noindex:1});
+  var T=[['todas','Todas'],['publicada','Publicadas'],['pendiente','Por aprobar'],['borrador','Borradores']],ST={publicada:'Publicada',pendiente:'Por aprobar',borrador:'Borrador'};
+  var chips=T.map(function(t){var c=NOTAS.filter(function(n){return t[0]==='todas'||n.estado===t[0];}).length;return '<button class="chip" data-e="'+t[0]+'" aria-pressed="'+(fe===t[0])+'">'+t[1]+' ('+c+')</button>';}).join('');
+  var rows=NOTAS.filter(function(n){return fe==='todas'||n.estado===fe;}).sort(function(a,b){return a.iso<b.iso?1:-1;}).map(function(n){
+    return '<div class="row" data-id="'+esc(n.id)+'"><div class="r-main"><strong>'+esc(n.t)+'</strong><span class="r-sub">'+CATS[n.cat]+' · '+n.fecha+(n.origen==='ia'?' · Generada con IA':'')+'</span></div><span class="st st-'+n.estado+'">'+ST[n.estado]+'</span><div class="r-act">'+(n.estado!=='publicada'?'<button class="btn sm ok" data-a="ok">Aprobar y publicar</button>':'')+'<button class="btn sm ghost" data-a="ver">Ver</button><button class="btn sm" data-a="ed">Editar</button><button class="btn sm danger" data-a="del">Eliminar</button></div></div>';}).join('');
+  app.innerHTML='<main class="wrap adm"><div class="adm-top"><div><h1>Panel de notas</h1><p>Creá, editá, aprobá y publicá las notas del blog.</p></div><div class="adm-act"><button class="btn" id="nueva" type="button">Nueva nota</button><a class="btn ghost" href="#">Ver sitio</a><button class="btn ghost" id="salir" type="button">Cerrar sesión</button></div></div>'+
+   '<div class="chips">'+chips+'</div><div class="tbl">'+(rows||'<p class="empty" style="padding:0 18px">No hay notas en esta vista.</p>')+'</div>'+
+   '<details class="tools box2"><summary>Exportar e importar notas</summary><p>Sirve para llevarte una copia o para cargar notas generadas por una automatización. Las importadas entran como “Por aprobar”.</p><textarea id="js" aria-label="Notas en formato JSON"></textarea><div class="adm-act"><button class="btn sm ghost" id="exp" type="button">Mostrar mis notas</button><button class="btn sm" id="imp" type="button">Importar lo pegado</button><button class="btn sm danger" id="rst" type="button">Restaurar ejemplos</button></div></details><p class="msg" id="tm" role="status">'+(msg||'')+'</p></main>';
+  app.querySelectorAll('[data-e]').forEach(function(b){b.onclick=function(){fe=b.getAttribute('data-e');panel();};});
+  document.getElementById('nueva').onclick=function(){editId=null;location.hash='editor';};
+  document.getElementById('salir').onclick=function(){ADM=false;try{sessionStorage.removeItem('cm_adm');}catch(e){}location.hash='';};
+  var tb=app.querySelector('.tbl');
+  tb.onclick=function(e){
+    var b=e.target.closest('[data-a]');if(!b)return;
+    var id=b.closest('.row').getAttribute('data-id'),a=b.getAttribute('data-a'),n=NOTAS.filter(function(x){return x.id===id;})[0];
+    if(a==='ed'){editId=id;location.hash='editor';}
+    else if(a==='ver'){location.hash=id;}
+    else if(a==='ok'){n.estado='publicada';guardar();panel('Nota publicada.');}
+    else if(a==='del'){
+      if(b.getAttribute('data-c')){NOTAS.splice(NOTAS.indexOf(n),1);guardar();panel('Nota eliminada.');}
+      else{b.setAttribute('data-c','1');b.textContent='¿Seguro? Eliminar';setTimeout(function(){b.removeAttribute('data-c');b.textContent='Eliminar';},3500);}
+    }
+  };
+  var js=document.getElementById('js');
+  document.getElementById('exp').onclick=function(){js.value=JSON.stringify(NOTAS,null,1);};
+  document.getElementById('imp').onclick=function(){
+    try{
+      var a=JSON.parse(js.value),k=0,o=0;if(!Array.isArray(a))a=[a];
+      a.forEach(function(x){
+        if(!x||!x.t){o++;return;}
+        x.id=slug(x.id||x.t);
+        if(!x.id||RES.indexOf(x.id)>-1||NOTAS.some(function(y){return y.id===x.id;})){o++;return;}
+        if(typeof x.b==='string')x.b=textToBlocks(x.b);
+        if(!CATS[x.cat])x.cat='otr';
+        x.estado=x.estado||'pendiente';x.origen=x.origen||'ia';
+        NOTAS.push(norm(x));k++;
+      });
+      guardar();panel(k+' nota(s) importadas'+(o?', '+o+' omitidas (sin título o con enlace repetido)':'')+'.');
+    }catch(err){document.getElementById('tm').textContent='El texto pegado no es un JSON válido.';}
+  };
+  document.getElementById('rst').onclick=function(){
+    var b=this;
+    if(b.getAttribute('data-c')){NOTAS=JSON.parse(JSON.stringify(SEED)).map(norm);guardar();panel('Se restauraron las notas de ejemplo.');}
+    else{b.setAttribute('data-c','1');b.textContent='¿Seguro? Se pierden tus cambios';setTimeout(function(){b.removeAttribute('data-c');b.textContent='Restaurar ejemplos';},3500);}
+  };
+}
+
+function editor(){
+  if(!esAdmin()){location.hash='admin';return;}
+  var n=editId?NOTAS.filter(function(x){return x.id===editId;})[0]:null;
+  if(!n)editId=null;
+  var d=n||{id:'',t:'',cat:'ia',estado:'borrador',iso:new Date().toISOString().slice(0,10),e:'',b:[],img:'',alt:'',seo:{},origen:'manual'};
+  cim=d.img||'';
+  seo({title:'Editor | ConciencIA Marema',desc:'Editor de notas.',noindex:1});
+  var opts=Object.keys(CATS).map(function(k){return '<option value="'+k+'"'+(k===d.cat?' selected':'')+'>'+CATS[k]+'</option>';}).join('');
+  var ests=[['borrador','Borrador'],['pendiente','Por aprobar'],['publicada','Publicada']].map(function(e){return '<option value="'+e[0]+'"'+(e[0]===d.estado?' selected':'')+'>'+e[1]+'</option>';}).join('');
+  app.innerHTML='<main class="wrap adm"><div class="adm-top"><div><h1>'+(n?'Editar nota':'Nueva nota')+'</h1><p>'+(d.origen==='ia'?'Esta nota fue generada con IA. Revisala antes de aprobarla.':'Completá los campos y guardá. A la derecha ves cómo se verá en Google y al compartir en redes.')+'</p></div><div class="adm-act"><a class="btn ghost" href="#panel">Volver al panel</a></div></div>'+
+  '<div class="ed"><div class="ed-col">'+
+  '<div class="box2"><label class="f">Título<input id="t" maxlength="120" value="'+esc(d.t)+'"></label>'+
+  '<div class="g2"><label class="f">Categoría<select id="cat">'+opts+'</select></label><label class="f">Estado<select id="est">'+ests+'</select></label></div>'+
+  '<label class="f">Fecha<input id="iso" type="date" value="'+d.iso+'"></label>'+
+  '<label class="f">Resumen <small id="ce"></small><textarea id="e" rows="3" maxlength="200">'+esc(d.e)+'</textarea></label>'+
+  '<label class="f">Contenido<small>Separá los párrafos con una línea en blanco. Subtítulo: ## Texto. Cajas de color: ::lila Título | texto  o  ::verde Título | texto</small><textarea id="txt" rows="14">'+esc(blocksToText(d.b))+'</textarea></label></div>'+
+  '<div class="box2"><h2>Imagen</h2><label class="f">Subir imagen<input id="fi" type="file" accept="image/*"></label><label class="f">O pegar el enlace de una imagen<input id="iu" placeholder="https://" value="'+(/^https?:/.test(d.img)?esc(d.img):'')+'"></label><label class="f">Texto alternativo (describe la imagen)<input id="alt" value="'+esc(d.alt)+'"></label><div class="adm-act"><button class="btn sm ghost" id="qi" type="button">Quitar imagen</button></div></div>'+
+  '<div class="box2"><h2>SEO</h2><label class="f">Enlace de la nota (slug)<input id="sl" value="'+esc(d.id)+'"></label><label class="f">Título para Google <small id="cst"></small><input id="st" maxlength="80" placeholder="Si lo dejás vacío se usa el título" value="'+esc(d.seo.title||'')+'"></label><label class="f">Descripción para Google y redes <small id="csd"></small><textarea id="sd" rows="3" maxlength="200" placeholder="Si la dejás vacía se usa el resumen">'+esc(d.seo.desc||'')+'</textarea></label><label class="f">Palabras clave (separadas por coma)<input id="kw" value="'+esc(d.seo.kw||'')+'"></label></div>'+
+  '<div class="adm-act"><button class="btn" id="g1" type="button">Guardar</button><button class="btn ghost" id="g2" type="button">Guardar y volver</button></div><p class="msg" id="msg" role="status"></p></div>'+
+  '<aside class="ed-col"><div class="box2"><h2>Vista en Google</h2><div class="pv-g" id="pg"></div></div><div class="box2"><h2>Vista al compartir en redes</h2><div class="pv-s" id="ps"></div></div></aside></div></main>';
+  var $=function(i){return document.getElementById(i);},slT=!!n;
+  function pv(){
+    var t=$('st').value||$('t').value||'Título de la nota',e=$('sd').value||$('e').value||'Descripción de la nota',sl=$('sl').value||slug($('t').value)||'titulo';
+    $('ce').textContent=$('e').value.length+'/160';$('cst').textContent=$('st').value.length+'/60';$('csd').textContent=$('sd').value.length+'/160';
+    $('pg').innerHTML='<div class="u">www.tecnomarema.com.ar › '+esc(sl)+'</div><div class="t">'+esc((t+' | ConciencIA Marema').slice(0,62))+'</div><div class="d">'+esc(e.slice(0,160))+'</div>';
+    $('ps').innerHTML='<div class="im">'+(cim?'<img src="'+esc(cim)+'" alt="">':art($('cat').value))+'</div><div class="tx"><small>conciencia marema</small><b>'+esc(t)+'</b><small>'+esc(e.slice(0,110))+'</small></div>';
+  }
+  app.querySelectorAll('input,textarea,select').forEach(function(i){i.addEventListener('input',pv);});
+  $('t').addEventListener('input',function(){if(!slT){$('sl').value=slug($('t').value);pv();}});
+  $('sl').addEventListener('input',function(){slT=true;});
+  $('fi').onchange=function(){
+    var f=this.files[0];if(!f)return;var r=new FileReader();
+    r.onload=function(){var im=new Image();im.onload=function(){var w=Math.min(1200,im.width),h=Math.round(im.height*w/im.width),c=document.createElement('canvas');c.width=w;c.height=h;c.getContext('2d').drawImage(im,0,0,w,h);cim=c.toDataURL('image/jpeg',.8);$('iu').value='';pv();};im.src=r.result;};
+    r.readAsDataURL(f);
+  };
+  $('iu').oninput=function(){cim=this.value.trim();};
+  $('qi').onclick=function(){cim='';$('iu').value='';$('fi').value='';pv();};
+  function save(volver){
+    var v=function(i){return $(i).value;},t=v('t').trim(),msg=$('msg');
+    if(!t){msg.textContent='Falta el título.';return;}
+    var id=slug(v('sl')||t);
+    if(!id||RES.indexOf(id)>-1||/^pagina-\d+$/.test(id)){msg.textContent='Ese enlace no se puede usar. Probá con otro.';return;}
+    if(NOTAS.some(function(x){return x.id===id&&x.id!==editId;})){msg.textContent='Ya existe otra nota con ese enlace.';return;}
+    var o=norm({id:id,t:t,cat:v('cat'),estado:v('est'),iso:v('iso')||undefined,e:v('e').trim(),b:textToBlocks(v('txt')),img:cim,alt:v('alt').trim(),origen:d.origen,seo:{title:v('st').trim(),desc:v('sd').trim(),kw:v('kw').trim()}});
+    var i=NOTAS.map(function(x){return x.id;}).indexOf(editId);
+    if(i>-1)NOTAS[i]=o;else NOTAS.push(o);
+    editId=id;
+    if(!guardar()){msg.textContent='No se pudo guardar: el navegador se quedó sin espacio. Probá con una imagen más liviana.';return;}
+    if(volver){location.hash='panel';}else{msg.textContent='Guardado.';}
+  }
+  $('g1').onclick=function(){save(false);};
+  $('g2').onclick=function(){save(true);};
+  pv();
+}
+
+function ic(k){return '<svg class="ic" aria-hidden="true"><use href="#i-'+k+'"/></svg>';}
+function compartir(n,mini){
+  var u=encodeURIComponent(location.href),t=encodeURIComponent(n.t);
+  var L=[['wa dk','wa','WhatsApp','https://wa.me/?text='+t+'%20'+u],
+   ['fb','fb','Facebook','https://www.facebook.com/sharer/sharer.php?u='+u],
+   ['x','x','X','https://x.com/intent/post?text='+t+'&amp;url='+u],
+   ['li','li','LinkedIn','https://www.linkedin.com/sharing/share-offsite/?url='+u],
+   ['tg dk','tg','Telegram','https://t.me/share/url?url='+u+'&amp;text='+t],
+   ['ml','ml','Email','mailto:?subject='+t+'&amp;body='+t+'%0A'+u]];
+  var h=L.map(function(s){return '<a class="sb '+s[0]+(mini?' mini':'')+'" href="'+s[3]+'" target="_blank" rel="noopener" aria-label="Compartir en '+s[2]+'"><i>'+ic(s[1])+'</i>'+(mini?'':s[2])+'</a>';}).join('');
+  h+='<button type="button" class="sb cp dk'+(mini?' mini':'')+'" data-copy aria-label="Copiar enlace"><i>'+ic('cp')+'</i><span>'+(mini?'':'Copiar enlace')+'</span></button>';
+  if(navigator.share)h+='<button type="button" class="sb nt'+(mini?' mini':'')+'" data-native aria-label="Más opciones"><i>'+ic('nt')+'</i>'+(mini?'':'Más opciones')+'</button>';
+  return h;
+}
+function copiar(txt,b){
+  function ok(){var i=b.querySelector('i'),s=b.querySelector('span'),a=i.innerHTML,c=s?s.textContent:'';i.textContent='✅';if(s&&c)s.textContent='¡Copiado!';setTimeout(function(){i.innerHTML=a;if(s)s.textContent=c;},2000);}
+  function viejo(){var t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(t);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(ok,viejo);}else{viejo();}
+}
+function nota(id){
+  var n=NOTAS.filter(function(x){return x.id===id;})[0];
+  if(!n||(n.estado!=='publicada'&&!esAdmin())){pag=1;lista();return;}
+  seo({title:(n.seo.title||n.t)+' | ConciencIA Marema',desc:n.seo.desc||n.e,kw:n.seo.kw,type:'article',img:n.img,note:n,noindex:n.estado!=='publicada'});
+  var rel=pub().filter(function(x){return x.id!==n.id;}).sort(function(a,b){return (b.cat===n.cat)-(a.cat===n.cat);}).slice(0,3);
+  app.innerHTML=(n.estado!=='publicada'?'<div class="prev-banner">Vista previa: esta nota todavía no es pública ('+n.estado+').</div>':'')+
+    '<header class="art-head" data-cat="'+n.cat+'"><div class="in"><a class="back" href="#">← Todas las notas</a><br>'+
+    '<span class="pill">'+CATS[n.cat]+'</span><h1>'+esc(n.t)+'</h1><p class="lead">'+esc(n.e)+'</p>'+
+    '<div class="by"><time datetime="'+n.iso+'">'+n.fecha+'</time></div><div class="sbtns mini-row">'+compartir(n,true)+'</div></div></header>'+
+    '<div class="shot" data-cat="'+n.cat+'"><div class="img">'+pic(n)+'</div></div>'+
+    '<article class="art"><div class="txt">'+n.b.map(bloque).join('')+'</div></article>'+
+    '<section class="share"><div class="share-box"><h2>Compartí esta nota</h2><p>Un toque y llega a tus contactos y redes.</p><div class="sbtns">'+compartir(n,false)+'</div></div></section>'+
+    (rel.length?'<section class="more"><div class="wrap"><h2>Seguí leyendo</h2><div class="grid">'+rel.map(function(r){return tarjeta(r,false);}).join('')+'</div></div></section>':'');
+  app.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(){copiar(location.href,b);});});
+  app.querySelectorAll('[data-native]').forEach(function(b){b.addEventListener('click',function(){try{var p=navigator.share({title:n.t,text:n.e,url:location.href});if(p&&p.catch)p.catch(function(){});}catch(e){}});});
+}
+
+function ruta(){
+  var h=decodeURIComponent(location.hash.replace('#','')),m=/^pagina-(\d+)$/.exec(h);
+  if(h==='admin'){login();}
+  else if(h==='panel'){panel();}
+  else if(h==='editor'){editor();}
+  else if(m){pag=+m[1];lista();}
+  else if(h){nota(h);}
+  else{pag=1;lista();}
+  window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',ruta);
+ruta();
+</script>
+</body>
+</html>
