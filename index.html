@@ -274,7 +274,7 @@ function norm(n){
 }
 // CONFIGURACIÓN GITHUB - Se autocompleta sola con tu token
 const GITHUB_CFG = {
-  owner: localStorage.getItem('cm_gh_owner') || "TU_USUARIO",
+  owner: localStorage.getItem('cm_gh_owner') || "emanuelcabral",
   repo: localStorage.getItem('cm_gh_repo') || "Conciencia-marema",
   branch: localStorage.getItem('cm_gh_branch') || "main",
   path: "data/notas.json"
@@ -299,6 +299,19 @@ async function detectarUsuarioDesdeToken(){
   }catch(e){ console.log('No se pudo auto-detectar usuario', e); }
 }
 detectarUsuarioDesdeToken();
+
+// FORZAR VALORES CORRECTOS PARA ESTE REPO
+if(!localStorage.getItem('cm_gh_owner') || localStorage.getItem('cm_gh_owner')==='TU_USUARIO'){
+  localStorage.setItem('cm_gh_owner','emanuelcabral');
+  GITHUB_CFG.owner='emanuelcabral';
+}
+if(!localStorage.getItem('cm_gh_repo') || localStorage.getItem('cm_gh_repo')==='TU_REPO'){
+  localStorage.setItem('cm_gh_repo','Conciencia-marema');
+  GITHUB_CFG.repo='Conciencia-marema';
+}
+GITHUB_CFG.owner='emanuelcabral';
+GITHUB_CFG.repo='Conciencia-marema';
+
 
 
 function cargarSync(){ 
@@ -329,6 +342,19 @@ async function guardarEnGitHub(mensaje){
     GITHUB_TOKEN = t.trim();
     localStorage.setItem('cm_gh_token', GITHUB_TOKEN);
     await detectarUsuarioDesdeToken();
+
+// FORZAR VALORES CORRECTOS PARA ESTE REPO
+if(!localStorage.getItem('cm_gh_owner') || localStorage.getItem('cm_gh_owner')==='TU_USUARIO'){
+  localStorage.setItem('cm_gh_owner','emanuelcabral');
+  GITHUB_CFG.owner='emanuelcabral';
+}
+if(!localStorage.getItem('cm_gh_repo') || localStorage.getItem('cm_gh_repo')==='TU_REPO'){
+  localStorage.setItem('cm_gh_repo','Conciencia-marema');
+  GITHUB_CFG.repo='Conciencia-marema';
+}
+GITHUB_CFG.owner='emanuelcabral';
+GITHUB_CFG.repo='Conciencia-marema';
+
   }
   const btnMsg = document.getElementById('msg');
   if(btnMsg) btnMsg.textContent = 'Subiendo al repositorio...';
