@@ -328,36 +328,83 @@ async function guardarEnGitHub(mensaje){
     if(!t) return false;
     GITHUB_TOKEN = t.trim();
     localStorage.setItem('cm_gh_token', GITHUB_TOKEN);
+    await detectarUsuarioDesdeToken();
   }
   const btnMsg = document.getElementById('msg');
   if(btnMsg) btnMsg.textContent = 'Subiendo al repositorio...';
-  try{
-    const apiUrl = `https://api.github.com/repos/${GITHUB_CFG.owner}/${GITHUB_CFG.repo}/contents/${GITHUB_CFG.path}`;
-    let sha = null;
-    const getRes = await fetch(apiUrl+`?ref=${GITHUB_CFG.branch}`, { headers:{ Authorization:`Bearer ${GITHUB_TOKEN}` } });
-    if(getRes.ok){ const fj = await getRes.json(); sha = fj.sha; }
+  const apiUrl = `https://api.github.com/repos/${GITHUB_CFG.owner}/${GITHUB_CFG.repo}/contents/${GITHUB_CFG.path}`;
+  // funcion helper para hacer PUT
+  async function doPut(shaVal){
     const contenido = btoa(unescape(encodeURIComponent(JSON.stringify(NOTAS, null, 2))));
-    const putRes = await fetch(apiUrl, {
+    return fetch(apiUrl, {
       method:'PUT',
-      headers:{ Authorization:`Bearer ${GITHUB_TOKEN}`, 'Content-Type':'application/json' },
+      headers:{ Authorization:`token ${GITHUB_TOKEN}`, 'Content-Type':'application/json', 'Accept':'application/vnd.github.v3+json' },
       body: JSON.stringify({
         message: mensaje || `blog: actualiza notas ${new Date().toISOString()}`,
         content: contenido,
         branch: GITHUB_CFG.branch,
-        sha: sha
+        ...(shaVal ? {sha: shaVal} : {})
       })
     });
+  }
+  try{
+    let sha = null;
+    try{
+      const getRes = await fetch(apiUrl+`?ref=${GITHUB_CFG.branch}&t=${Date.now()}`, { 
+        headers:{ Authorization:`token ${GITHUB_TOKEN}`, 'Accept':'application/vnd.github.v3+json' },
+        cache:'no-store'
+      });
+      if(getRes.ok){ 
+        const fj = await getRes.json(); 
+        sha = fj.sha; 
+        console.log('SHA actual:', sha);
+      } else {
+        console.log('GET no ok, status', getRes.status, ' - probablemente archivo nuevo, se creará');
+      }
+    }catch(ge){ console.log('Error obteniendo SHA', ge); }
+    
+    let putRes = await doPut(sha);
+    
+    // Si falla por SHA desactualizado (409) o 404 por sha mandado cuando no existe, reintentar sin sha o con sha fresco
+    if(!putRes.ok && (putRes.status===409 || putRes.status===404 || putRes.status===422)){
+      console.log('Primer PUT falló con', putRes.status, 'reintentando obtener SHA fresco');
+      try{
+        const getRes2 = await fetch(apiUrl+`?ref=${GITHUB_CFG.branch}&t=${Date.now()}`, { 
+          headers:{ Authorization:`token ${GITHUB_TOKEN}`, 'Accept':'application/vnd.github.v3+json' },
+          cache:'no-store'
+        });
+        if(getRes2.ok){
+          const fj2 = await getRes2.json();
+          sha = fj2.sha;
+          putRes = await doPut(sha);
+        } else {
+          // archivo no existe, intentar crear sin sha
+          putRes = await doPut(null);
+        }
+      }catch(e){ putRes = await doPut(null); }
+    }
+
     if(!putRes.ok){
-      const err = await putRes.text();
-      console.error(err);
-      if(putRes.status===401){ localStorage.removeItem('cm_gh_token'); GITHUB_TOKEN=''; }
-      throw new Error(err);
+      const errText = await putRes.text();
+      console.error('PUT error', errText);
+      let errJson = {};
+      try{ errJson = JSON.parse(errText); }catch{}
+      if(putRes.status===401 || putRes.status===403){
+        localStorage.removeItem('cm_gh_token'); 
+        GITHUB_TOKEN=''; 
+        throw new Error(`Token sin permiso o expirado (${putRes.status}). Creá uno nuevo con permiso repo. Detalle: ${errJson.message||errText}`);
+      }
+      if(putRes.status===404){
+        throw new Error(`Repo no encontrado (404). Revisá que owner='${GITHUB_CFG.owner}' y repo='${GITHUB_CFG.repo}' sean exactos (mayúsculas importan). Además el token debe tener acceso a ese repo. Detalle: ${errJson.message||errText}`);
+      }
+      throw new Error(errText);
     }
     if(btnMsg) btnMsg.textContent = '¡Subido al repo! En 1-2 min lo ve todo el mundo.';
     return true;
   }catch(e){
-    if(btnMsg) btnMsg.textContent = 'Error al subir: '+ (e.message.slice(0,120));
-    alert('No se pudo subir al repo. Revisa owner/repo/token y que el token tenga permiso repo. Error: '+e.message);
+    console.error(e);
+    if(btnMsg) btnMsg.textContent = 'Error al subir: '+ (e.message.slice(0,200));
+    alert('No se pudo subir al repo.\n\n'+e.message);
     return false;
   }
 }
