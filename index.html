@@ -272,9 +272,98 @@ function norm(n){
   n.fecha=fmt(n.iso);n.estado=n.estado||'publicada';n.origen=n.origen||'manual';n.seo=n.seo||{};n.img=n.img||'';n.alt=n.alt||'';n.e=n.e||'';n.b=n.b||[];
   return n;
 }
-function cargar(){try{var s=localStorage.getItem(KEY);if(s){var a=JSON.parse(s);if(Array.isArray(a))return a.map(norm);}}catch(e){}return JSON.parse(JSON.stringify(SEED)).map(norm);}
-function guardar(){try{localStorage.setItem(KEY,JSON.stringify(NOTAS));return true;}catch(e){return false;}}
-var NOTAS=cargar();
+// CONFIGURACIÓN GITHUB - Se autocompleta sola con tu token
+const GITHUB_CFG = {
+  owner: localStorage.getItem('cm_gh_owner') || "TU_USUARIO",
+  repo: localStorage.getItem('cm_gh_repo') || "Conciencia-marema",
+  branch: localStorage.getItem('cm_gh_branch') || "main",
+  path: "data/notas.json"
+};
+let GITHUB_TOKEN = localStorage.getItem('cm_gh_token') || "";
+
+async function detectarUsuarioDesdeToken(){
+  if(!GITHUB_TOKEN) return;
+  if(GITHUB_CFG.owner !== "TU_USUARIO" && GITHUB_CFG.owner) return;
+  try{
+    const r = await fetch('https://api.github.com/user', { headers:{ Authorization:`Bearer ${GITHUB_TOKEN}` } });
+    if(r.ok){
+      const u = await r.json();
+      if(u.login){
+        GITHUB_CFG.owner = u.login;
+        localStorage.setItem('cm_gh_owner', u.login);
+        const el = document.getElementById('gh_owner');
+        if(el) el.value = u.login;
+        console.log('Owner detectado:', u.login);
+      }
+    }
+  }catch(e){ console.log('No se pudo auto-detectar usuario', e); }
+}
+detectarUsuarioDesdeToken();
+
+
+function cargarSync(){ 
+  // carga sincrónica inicial desde SEED, luego se actualiza desde notas.json
+  try{var s=localStorage.getItem(KEY);if(s){var a=JSON.parse(s);if(Array.isArray(a))return a.map(norm);}}catch(e){}
+  return JSON.parse(JSON.stringify(SEED)).map(norm);
+}
+async function cargarRemoto(){
+  try{
+    const r = await fetch('./data/notas.json?v='+Date.now(), {cache:'no-store'});
+    if(r.ok){
+      const j = await r.json();
+      if(Array.isArray(j) && j.length){
+        NOTAS = j.map(norm);
+        // si estamos en lista, re-renderizar
+        if(!location.hash || /^#pagina/.test(location.hash)) lista();
+      }
+    }
+  }catch(e){ console.log('No se pudo cargar data/notas.json, usando SEED', e); }
+}
+function guardar(){ 
+  try{localStorage.setItem(KEY,JSON.stringify(NOTAS)); return true; }catch(e){ return false; }
+}
+async function guardarEnGitHub(mensaje){
+  if(!GITHUB_TOKEN){ 
+    const t = prompt('Pegá tu GitHub Personal Access Token (solo se guarda en tu navegador):\nCrealo en github.com/settings/tokens -> repo permission');
+    if(!t) return false;
+    GITHUB_TOKEN = t.trim();
+    localStorage.setItem('cm_gh_token', GITHUB_TOKEN);
+  }
+  const btnMsg = document.getElementById('msg');
+  if(btnMsg) btnMsg.textContent = 'Subiendo al repositorio...';
+  try{
+    const apiUrl = `https://api.github.com/repos/${GITHUB_CFG.owner}/${GITHUB_CFG.repo}/contents/${GITHUB_CFG.path}`;
+    let sha = null;
+    const getRes = await fetch(apiUrl+`?ref=${GITHUB_CFG.branch}`, { headers:{ Authorization:`Bearer ${GITHUB_TOKEN}` } });
+    if(getRes.ok){ const fj = await getRes.json(); sha = fj.sha; }
+    const contenido = btoa(unescape(encodeURIComponent(JSON.stringify(NOTAS, null, 2))));
+    const putRes = await fetch(apiUrl, {
+      method:'PUT',
+      headers:{ Authorization:`Bearer ${GITHUB_TOKEN}`, 'Content-Type':'application/json' },
+      body: JSON.stringify({
+        message: mensaje || `blog: actualiza notas ${new Date().toISOString()}`,
+        content: contenido,
+        branch: GITHUB_CFG.branch,
+        sha: sha
+      })
+    });
+    if(!putRes.ok){
+      const err = await putRes.text();
+      console.error(err);
+      if(putRes.status===401){ localStorage.removeItem('cm_gh_token'); GITHUB_TOKEN=''; }
+      throw new Error(err);
+    }
+    if(btnMsg) btnMsg.textContent = '¡Subido al repo! En 1-2 min lo ve todo el mundo.';
+    return true;
+  }catch(e){
+    if(btnMsg) btnMsg.textContent = 'Error al subir: '+ (e.message.slice(0,120));
+    alert('No se pudo subir al repo. Revisa owner/repo/token y que el token tenga permiso repo. Error: '+e.message);
+    return false;
+  }
+}
+var NOTAS=cargarSync();
+cargarRemoto();
+
 var ART={
 ia:'<g fill="#12F693"><circle cx="78%" cy="32%" r="64" opacity=".18"/><circle cx="78%" cy="32%" r="30" opacity=".9"/></g><g fill="#CF30FF"><circle cx="16%" cy="82%" r="46" opacity=".85"/></g>',
 edu:'<g fill="#12F693"><rect x="9%" y="20%" width="48%" height="12" rx="6"/><rect x="9%" y="44%" width="66%" height="12" rx="6" opacity=".6"/></g><rect x="9%" y="68%" width="32%" height="12" rx="6" fill="#CF30FF"/>',
@@ -369,9 +458,33 @@ function panel(msg){
   var chips=T.map(function(t){var c=NOTAS.filter(function(n){return t[0]==='todas'||n.estado===t[0];}).length;return '<button class="chip" data-e="'+t[0]+'" aria-pressed="'+(fe===t[0])+'">'+t[1]+' ('+c+')</button>';}).join('');
   var rows=NOTAS.filter(function(n){return fe==='todas'||n.estado===fe;}).sort(function(a,b){return a.iso<b.iso?1:-1;}).map(function(n){
     return '<div class="row" data-id="'+esc(n.id)+'"><div class="r-main"><strong>'+esc(n.t)+'</strong><span class="r-sub">'+CATS[n.cat]+' · '+n.fecha+(n.origen==='ia'?' · Generada con IA':'')+'</span></div><span class="st st-'+n.estado+'">'+ST[n.estado]+'</span><div class="r-act">'+(n.estado!=='publicada'?'<button class="btn sm ok" data-a="ok">Aprobar y publicar</button>':'')+'<button class="btn sm ghost" data-a="ver">Ver</button><button class="btn sm" data-a="ed">Editar</button><button class="btn sm danger" data-a="del">Eliminar</button></div></div>';}).join('');
-  app.innerHTML='<main class="wrap adm"><div class="adm-top"><div><h1>Panel de notas</h1><p>Creá, editá, aprobá y publicá las notas del blog.</p></div><div class="adm-act"><button class="btn" id="nueva" type="button">Nueva nota</button><a class="btn ghost" href="#">Ver sitio</a><button class="btn ghost" id="salir" type="button">Cerrar sesión</button></div></div>'+
+  app.innerHTML='<main class="wrap adm"><div class="box2" style="margin-bottom:18px; border-style:dashed"><h2>Configuración GitHub (solo una vez)</h2><div class="g2"><label class="f">Usuario/Org<input id="gh_owner" value="'+(GITHUB_CFG.owner !== 'TU_USUARIO' ? esc(GITHUB_CFG.owner) : '')+'" placeholder="tu usuario"></label><label class="f">Repo<input id="gh_repo" value="'+(GITHUB_CFG.repo !== 'TU_REPO' ? esc(GITHUB_CFG.repo) : '')+'" placeholder="conciencia-marema"></label></div><div class="g2"><label class="f">Branch<input id="gh_branch" value="'+esc(GITHUB_CFG.branch)+'" placeholder="main"></label><label class="f">Token (se guarda solo en tu navegador)<input id="gh_token" type="password" placeholder="ghp_..." value="'+esc(GITHUB_TOKEN)+'" ></label></div><p style="font-size:.85rem;color:var(--muted)">1. En GitHub: Settings > Developer settings > Personal access tokens > Tokens (classic) > Generate new token > marca <b>repo</b>. 2. Copialo acá. 3. Creá la carpeta <code>data/</code> en tu repo.</p><div class="adm-act"><button class="btn sm" id="gh_save" type="button">Guardar config</button><button class="btn sm ghost" id="gh_clear" type="button">Borrar token</button></div></div><div class="adm-top"><div><h1>Panel de notas</h1><p>Creá, editá, aprobá y publicá las notas del blog. Ahora al guardar se hace commit a <code>data/notas.json</code>.</p></div><div class="adm-act"><button class="btn" id="nueva" type="button">Nueva nota</button><a class="btn ghost" href="#">Ver sitio</a><button class="btn ghost" id="salir" type="button">Cerrar sesión</button></div></div>'+
    '<div class="chips">'+chips+'</div><div class="tbl">'+(rows||'<p class="empty" style="padding:0 18px">No hay notas en esta vista.</p>')+'</div>'+
    '<details class="tools box2"><summary>Exportar e importar notas</summary><p>Sirve para llevarte una copia o para cargar notas generadas por una automatización. Las importadas entran como “Por aprobar”.</p><textarea id="js" aria-label="Notas en formato JSON"></textarea><div class="adm-act"><button class="btn sm ghost" id="exp" type="button">Mostrar mis notas</button><button class="btn sm" id="imp" type="button">Importar lo pegado</button><button class="btn sm danger" id="rst" type="button">Restaurar ejemplos</button></div></details><p class="msg" id="tm" role="status">'+(msg||'')+'</p></main>';
+
+  // GitHub config handlers
+  const ownerI = document.getElementById('gh_owner');
+  const repoI = document.getElementById('gh_repo');
+  const branchI = document.getElementById('gh_branch');
+  const tokenI = document.getElementById('gh_token');
+  if(ownerI) ownerI.addEventListener('change', function(){ GITHUB_CFG.owner = this.value.trim(); });
+  if(repoI) repoI.addEventListener('change', function(){ GITHUB_CFG.repo = this.value.trim(); });
+  if(branchI) branchI.addEventListener('change', function(){ GITHUB_CFG.branch = this.value.trim()||'main'; });
+  const saveCfgBtn = document.getElementById('gh_save');
+  if(saveCfgBtn) saveCfgBtn.onclick = function(){
+    GITHUB_CFG.owner = document.getElementById('gh_owner').value.trim();
+    GITHUB_CFG.repo = document.getElementById('gh_repo').value.trim();
+    GITHUB_CFG.branch = document.getElementById('gh_branch').value.trim()||'main';
+    GITHUB_TOKEN = document.getElementById('gh_token').value.trim();
+    if(GITHUB_TOKEN) localStorage.setItem('cm_gh_token', GITHUB_TOKEN);
+    localStorage.setItem('cm_gh_cfg', JSON.stringify(GITHUB_CFG));
+    document.getElementById('tm').textContent = 'Configuración guardada. Ahora podés crear notas que se suben al repo.';
+  };
+  const clearBtn = document.getElementById('gh_clear');
+  if(clearBtn) clearBtn.onclick = function(){ localStorage.removeItem('cm_gh_token'); GITHUB_TOKEN=''; document.getElementById('gh_token').value=''; document.getElementById('tm').textContent='Token borrado.'; };
+  // cargar cfg guardada
+  try{ const saved = JSON.parse(localStorage.getItem('cm_gh_cfg')||'null'); if(saved){ Object.assign(GITHUB_CFG, saved); if(ownerI) ownerI.value=GITHUB_CFG.owner; if(repoI) repoI.value=GITHUB_CFG.repo; if(branchI) branchI.value=GITHUB_CFG.branch; } }catch(e){}
+
   app.querySelectorAll('[data-e]').forEach(function(b){b.onclick=function(){fe=b.getAttribute('data-e');panel();};});
   document.getElementById('nueva').onclick=function(){editId=null;location.hash='editor';};
   document.getElementById('salir').onclick=function(){ADM=false;try{sessionStorage.removeItem('cm_adm');}catch(e){}location.hash='';};
@@ -447,7 +560,7 @@ function editor(){
   };
   $('iu').oninput=function(){cim=this.value.trim();};
   $('qi').onclick=function(){cim='';$('iu').value='';$('fi').value='';pv();};
-  function save(volver){
+  async function save(volver){
     var v=function(i){return $(i).value;},t=v('t').trim(),msg=$('msg');
     if(!t){msg.textContent='Falta el título.';return;}
     var id=slug(v('sl')||t);
@@ -457,8 +570,10 @@ function editor(){
     var i=NOTAS.map(function(x){return x.id;}).indexOf(editId);
     if(i>-1)NOTAS[i]=o;else NOTAS.push(o);
     editId=id;
-    if(!guardar()){msg.textContent='No se pudo guardar: el navegador se quedó sin espacio. Probá con una imagen más liviana.';return;}
-    if(volver){location.hash='panel';}else{msg.textContent='Guardado.';}
+    guardar(); // respaldo local
+    msg.textContent='Guardando local y subiendo al repo...';
+    const ok = await guardarEnGitHub( (i>-1?'Actualiza':'Nueva') + ' nota: '+t );
+    if(ok && volver){ location.hash='panel'; }
   }
   $('g1').onclick=function(){save(false);};
   $('g2').onclick=function(){save(true);};
